@@ -1,0 +1,18 @@
+CREATE TABLE clothingstore(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, ailse INTEGER, quantity INTEGER);
+INSERT INTO clothingstore VALUES(1, "Shirt", 2000, 2, 10);
+INSERT INTO clothingstore VALUES(2, "Skirt", 4000, 1, 5);
+INSERT INTO clothingstore VALUES(3, "Dress", 5000, 4, 10);
+INSERT INTO clothingstore VALUES(4, "Short", 3500, 6, 12);
+INSERT INTO clothingstore VALUES(5, "Cap", 2500, 3, 13);
+INSERT INTO clothingstore VALUES(6, "Pant", 3000, 3, 5);
+INSERT INTO clothingstore VALUES(7, "Denim Top", 4500, 5, 3);
+INSERT INTO clothingstore VALUES(8, "Denim Skirt", 6500, 8, 8);
+INSERT INTO clothingstore VALUES(9, "Denim Shirt", 5000, 7, 4);
+INSERT INTO clothingstore VALUES(10, "Denim Trouser", 4500, 1, 5);
+INSERT INTO clothingstore VALUES(11, "Bikini", 3500, 9, 5);
+INSERT INTO clothingstore VALUES(12, "Blouse", 3000, 5, 3);
+INSERT INTO clothingstore VALUES(13, "Jacket",13000, 10, 7);
+INSERT INTO clothingstore VALUES(14, "Boxer", 4000, 11, 9);
+INSERT INTO clothingstore VALUES(15, "Hoody", 18000, 11,6);
+SELECT * FROM clothingstore ORDER BY price;
+SELECT MAX(quantity) FROM clothingstore;
