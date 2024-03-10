@@ -1,4 +1,45 @@
+# 1 select the 2 tables with a join so that you can see each person's name next to their hobby.
+2 Select only the name and hobbies of 'Bobby McBobbyFace', using JOIN combined with WHERE.
 
 SELECT persons.name, hobbies.name FROM persons JOIN hobbies ON persons.id=hobbies.person_id;
 
-SELECT persons.name, hobbies.name FROM persons JOIN hobbies ON persons.id=hobbies.person_id WHERE persons.name LIKE "%Bobb
+SELECT persons.name, hobbies.name FROM persons 
+JOIN hobbies ON persons.id=hobbies.person_id WHERE persons.name LIKE "%Bobby McBobbyFace%";
+
+In this project, you’re going to make your own table with some small set of 
+“famous people”, then make more tables about things they do and join those to
+create nice human readable lists.
+
+CREATE TABLE Famous_people(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, profession TEXT , Age INTEGER);
+
+INSERT INTO famous_people (name, profession, age) VALUES("John Cena"," Wrestler", 45);
+INSERT INTO famous_people (name, profession, age) VALUES("Drake", "Artist",40);
+INSERT INTO famous_people (name, profession, age) VALUES("Mercy Chinwo", "Artist", 35);
+INSERT INTO famous_people (name, profession, age) VALUES("Ada Ehi", "Artist", 35);
+INSERT INTO famous_people (name, profession, age) VALUES("Busayo Udogu", "Data Analyst", 24);
+INSERT INTO famous_people (name, profession,age) VALUES("Joy", "Actor", 32);
+INSERT INTO famous_people (name, profession, age) VALUES("Miracle", "Lawyer", 35);
+
+CREATE TABLE famous_people_spouse (id INTEGER
+, spouse_id TEXT PRIMARY KEY, famous_people_id INTEGER, age INTEGER);
+
+
+INSERT INTO famous_people_spouse(id,spouse_id, famous_people_id, age) VALUES(1, "Brittney", 2, 30);
+INSERT INTO famous_people_spouse(id,spouse_id, famous_people_id, age) VALUES(2, "Kim", 5, 29);
+INSERT INTO famous_people_spouse(id,spouse_id, famous_people_id, age) VALUES(3, "Peter", 1, 30);
+INSERT INTO famous_people_spouse(id,spouse_id, famous_people_id, age) VALUES(4, "James", 3, 39);
+INSERT INTO famous_people_spouse(id,spouse_id, famous_people_id, age) VALUES(5, "Seun", 4, 30);
+
+CREATE TABLE songs(id INTEGER, famous_people_id INTEGER PRIMARY KEY, song_name TEXT );
+
+INSERT INTO songs(famous_people_id, song_name) VALUES(2, "God's plan");
+INSERT INTO songs(famous_people_id, song_name) VALUES(3, "Life");
+INSERT INTO songs(famous_people_id, song_name) VALUES(4, "Peace");
+
+SELECT famous_people.name, famous_people.profession, famous_people_spouse.spouse_id FROM  famous_people JOIN famous_people_spouse ON famous_people.id = famous_people_spouse.famous_people_id ORDER BY name;
+
+SELECT famous_people.name, songs.song_name FROM famous_people LEFT OUTER JOIN songs ON famous_people.id=songs.famous_people_id;
+
+SELECT famous_people.name, songs.song_name FROM famous_people JOIN songs ON famous_people.id=songs.famous_people_id;
+
+SELECT famous_people.age, famous_people_spouse.age AS Spouse_age FROM famous_people JOIN famous_people_spouse ON famous_people.id=famous_people_spouse.famous_people_id WHERE famous_people.age>famous_people_spouse.age;
