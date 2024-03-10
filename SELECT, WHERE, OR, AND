@@ -1,0 +1,10 @@
+#In this SQL code, I'm querying a database that's holding songs data to answer questions about the data
+1 You'll use queries to decide what songs to sing. For the first step, select all the song titles.
+2 Add another SELECT that uses OR to show the titles of the songs that have an 'epic' mood or a release date after 1990.
+3 Add another SELECT that uses AND to show the titles of songs that are 'epic', and released after 1990, and less than 4 minutes long.
+Note that the duration column is measured in seconds.
+
+SELECT title FROM songs;
+SELECT title FROM songs WHERE released > 1990 OR mood = "epic";
+SELECT title FROM songs WHERE released > 1990 AND duration < 4 AND mood = "epic";
+SELECT title FROM songs WHERE released > 1990 AND mood = "epic" AND duration < 240;
