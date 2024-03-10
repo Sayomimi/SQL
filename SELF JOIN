@@ -1,0 +1,5 @@
+
+ SELECT movies.title, sequel.title AS sequel_title
+FROM movies 
+LEFT OUTER JOIN movies sequel 
+ON movies.sequel_id=sequel.id;
