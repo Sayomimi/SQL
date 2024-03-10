@@ -1,0 +1,78 @@
+
+SELECT AVG( population ), MAX(population), MIN(population) FROM countries;
+
+SELECT AVG( fertility_rate ), MAX(fertility_rate), MIN(fertility_rate) FROM countries;
+
+SELECT AVG( population_change ), MAX(population_change), MIN(population_change) FROM countries;
+
+SELECT AVG( percent_one_year_change ), MAX(percent_one_year_change), MIN(percent_one_year_change) FROM countries;
+
+SELECT AVG( density_per_sq_km ), MAX(density_per_sq_km), MIN(density_per_sq_km) FROM countries;
+
+SELECT AVG( area_sq_km ), MAX(area_sq_km), MIN(area_sq_km) FROM countries;
+
+SELECT AVG( net_migrants ), MAX(net_migrants), MIN(net_migrants) FROM countries;
+
+SELECT AVG( median_age ), MAX(median_age), MIN(median_age) FROM countries;
+
+SELECT AVG( percent_of_world_pop ), MAX(percent_of_world_pop), MIN(percent_of_world_pop) FROM countries;
+
+SELECT population, name FROM countries GROUP BY population HAVING population >= 1000000000;
+
+SELECT population_change, name FROM countries GROUP BY population_change HAVING population_change >= 10000000;
+
+SELECT fertility_rate, name FROM countries GROUP BY fertility_rate HAVING fertility_rate >= 6;
+
+SELECT percent_one_year_change, name FROM countries GROUP BY percent_one_year_change HAVING percent_one_year_change <=1;
+
+
+SELECT density_per_sq_km, name FROM countries GROUP BY density_per_sq_km HAVING density_per_sq_km >=2000;
+
+
+SELECT area_sq_km, name FROM countries GROUP BY area_sq_km HAVING area_sq_km >=2000000;
+
+SELECT net_migrants, name FROM countries GROUP BY net_migrants HAVING net_migrants >=200000;
+
+
+SELECT median_age, name, percent_of_world_pop FROM countries GROUP BY median_age HAVING median_age < 30;
+
+SELECT percent_of_world_pop, name, population FROM countries GROUP BY percent_of_world_pop HAVING percent_of_world_pop > 10;
+
+SELECT name, fertility_rate, median_age FROM countries WHERE name LIKE "%Nigeria%";
+
+SELECT name, population,
+ CASE
+  WHEN population > 10000000 THEN "High"
+  WHEN population > 1000000 THEN "Medium"
+  WHEN population > 10000 THEN "Low"
+  ELSE "Very Low"
+  END as "population_rate"
+  FROM countries;
+  
+  SELECT *,
+ CASE
+  WHEN population > 10000000 THEN "High"
+  WHEN population > 1000000 THEN "Medium"
+  WHEN population > 10000 THEN "Low"
+  ELSE "Very Low"
+  END as "population_rate"
+  FROM countries
+  GROUP BY population_rate;
+  
+  SELECT COUNT(*),
+ CASE
+  WHEN population > 10000000 THEN "High"
+  WHEN population > 1000000 THEN "Medium"
+  WHEN population > 10000 THEN "Low"
+  ELSE "Very Low"
+  END as "population_rate"
+  FROM countries
+  GROUP BY population_rate;
+
+SELECT name, net_migrants, median_age FROM countries WHERE net_migrants >= "150000" AND median_age >= "20";
+
+
+SELECT name, population, net_migrants, fertility_rate FROM countries WHERE net_migrants >= "100000" AND fertility_rate >= "1";
+
+
+SELECT name, population, net_migrants, fertility_rate FROM countries WHERE net_migrants >= "100000" OR fertility_rate >= "7";
