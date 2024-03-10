@@ -1,4 +1,4 @@
-
+#In this SQL code, I'm querying a database that's holding books data to answer questions about the data
 1 Select all the authors who have written more than 1 million words, using GROUP BY and HAVING. Your results table should include the 'author' and their total word count as a 'total_words' column.
 2 Now select all the authors that write more than an average of 150,000 words per book. 
 
