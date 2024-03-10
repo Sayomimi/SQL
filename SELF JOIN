@@ -1,5 +1,6 @@
+#In this SQL code, I'm querying a database that's holding movies data to answer questions about the data
 
- SELECT movies.title, sequel.title AS sequel_title
+SELECT movies.title, sequel.title AS sequel_title
 FROM movies 
 LEFT OUTER JOIN movies sequel 
 ON movies.sequel_id=sequel.id;
