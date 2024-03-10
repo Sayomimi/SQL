@@ -1,0 +1,9 @@
+
+
+SELECT persons.fullname, hobbies.name FROM persons
+JOIN hobbies ON persons.id=hobbies.person_id;
+    
+SELECT a.fullname, b.fullname 
+FROM friends
+JOIN persons AS a ON person1_id=a.id
+JOIN persons AS b ON person2_id=b.id;
