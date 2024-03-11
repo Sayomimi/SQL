@@ -4,3 +4,24 @@ INSERT INTO favoritebooks VALUES (1, "Home alone", 9);
 INSERT INTO favoritebooks VALUES (2, "This life", 7);
 INSERT INTO favoritebooks VALUES (3, "Free", 8);
 SELECT * FROM favoritebooks;
+
+
+#The data is from a separate database
+
+List all movies that were released on even number years 
+List all movies and their combined sales in millions of dollars 
+List all movies and their ratings in percent
+
+SELECT title, year
+FROM movies
+WHERE year % 2 = 1;
+
+SELECT title, (domestic_sales + international_sales) / 1000000 AS gross_sales_millions
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
+
+SELECT title, rating * 10 AS rating_percent
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id;
