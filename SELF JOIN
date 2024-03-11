@@ -3,10 +3,12 @@
 1 JOIN to display a table showing people's names with their hobbies.
 2 JOIN to show the names of each pair of friends, based on the data in the friends table.
 
-SELECT persons.fullname, hobbies.name FROM persons
-JOIN hobbies ON persons.id=hobbies.person_id;
+SELECT persons.fullname, hobbies.name 
+ FROM persons
+ JOIN hobbies 
+ON persons.id=hobbies.person_id;
     
 SELECT a.fullname, b.fullname 
-FROM friends
-JOIN persons AS a ON person1_id=a.id
+ FROM friends
+ JOIN persons AS a ON person1_id=a.id
 JOIN persons AS b ON person2_id=b.id;
