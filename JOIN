@@ -36,10 +36,25 @@ INSERT INTO songs(famous_people_id, song_name) VALUES(2, "God's plan");
 INSERT INTO songs(famous_people_id, song_name) VALUES(3, "Life");
 INSERT INTO songs(famous_people_id, song_name) VALUES(4, "Peace");
 
-SELECT famous_people.name, famous_people.profession, famous_people_spouse.spouse_id FROM  famous_people JOIN famous_people_spouse ON famous_people.id = famous_people_spouse.famous_people_id ORDER BY name;
+SELECT famous_people.name, famous_people.profession, famous_people_spouse.spouse_id 
+ FROM  famous_people 
+JOIN famous_people_spouse 
+ON famous_people.id = famous_people_spouse.famous_people_id 
+ ORDER BY name;
 
-SELECT famous_people.name, songs.song_name FROM famous_people LEFT OUTER JOIN songs ON famous_people.id=songs.famous_people_id;
+SELECT famous_people.name, songs.song_name 
+ FROM famous_people 
+LEFT OUTER JOIN songs 
+ON famous_people.id=songs.famous_people_id;
 
-SELECT famous_people.name, songs.song_name FROM famous_people JOIN songs ON famous_people.id=songs.famous_people_id;
+SELECT famous_people.name, songs.song_name 
+ FROM famous_people 
+JOIN songs 
+ON famous_people.id=songs.famous_people_id;
 
-SELECT famous_people.age, famous_people_spouse.age AS Spouse_age FROM famous_people JOIN famous_people_spouse ON famous_people.id=famous_people_spouse.famous_people_id WHERE famous_people.age>famous_people_spouse.age;
+SELECT famous_people.age, famous_people_spouse.age 
+ AS Spouse_age 
+ FROM famous_people JOIN famous_people_spouse 
+ON famous_people.id=famous_people_spouse.famous_people_id 
+ WHERE famous_people.age>famous_people_spouse.age;
+
