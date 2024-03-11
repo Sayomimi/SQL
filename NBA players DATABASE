@@ -70,10 +70,14 @@ ELSE "Very Low"
   FROM countries
   GROUP BY population_rate;
 
-SELECT name, net_migrants, median_age FROM countries WHERE net_migrants >= "150000" AND median_age >= "20";
+SELECT name, net_migrants, median_age 
+ FROM countries 
+WHERE net_migrants >= "150000" AND median_age >= "20";
 
+SELECT name, population, net_migrants, fertility_rate 
+ FROM countries
+WHERE net_migrants >= "100000" AND fertility_rate >= "1";
 
-SELECT name, population, net_migrants, fertility_rate FROM countries WHERE net_migrants >= "100000" AND fertility_rate >= "1";
-
-
-SELECT name, population, net_migrants, fertility_rate FROM countries WHERE net_migrants >= "100000" OR fertility_rate >= "7";
+SELECT name, population, net_migrants, fertility_rate 
+ FROM countries 
+WHERE net_migrants >= "100000" OR fertility_rate >= "7";
