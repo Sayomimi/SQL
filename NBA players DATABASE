@@ -46,26 +46,26 @@ SELECT name, population,
   WHEN population > 10000000 THEN "High"
   WHEN population > 1000000 THEN "Medium"
   WHEN population > 10000 THEN "Low"
-  ELSE "Very Low"
-  END as "population_rate"
-  FROM countries;
+ ELSE "Very Low"
+    END as "population_rate"
+     FROM countries;
   
   SELECT *,
- CASE
-  WHEN population > 10000000 THEN "High"
-  WHEN population > 1000000 THEN "Medium"
-  WHEN population > 10000 THEN "Low"
+   CASE
+    WHEN population > 10000000 THEN "High"
+    WHEN population > 1000000 THEN "Medium"
+    WHEN population > 10000 THEN "Low"
   ELSE "Very Low"
-  END as "population_rate"
-  FROM countries
+    END as "population_rate"
+    FROM countries
   GROUP BY population_rate;
   
-  SELECT COUNT(*),
+SELECT COUNT(*),
  CASE
   WHEN population > 10000000 THEN "High"
   WHEN population > 1000000 THEN "Medium"
   WHEN population > 10000 THEN "Low"
-  ELSE "Very Low"
+ELSE "Very Low"
   END as "population_rate"
   FROM countries
   GROUP BY population_rate;
